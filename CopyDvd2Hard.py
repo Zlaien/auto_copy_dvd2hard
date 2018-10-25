@@ -68,10 +68,11 @@ def copydvd2hard(dstdir='temp'):
 		while os.system('dir ' + cdrom):
 			print 'notcopy'
 			time.sleep(5)
+		copyDir=destDir + time.strftime('%Y.%m.%d-%H.%M.%S',time.localtime(time.time()))+ '/'
+		copy_cd(cdrom, copyDir);
 		while not os.system('dir ' + cdrom):
-			print 'copying'
-			copyDir=destDir + time.strftime('%Y.%m.%d-%H.%M.%S',time.localtime(time.time()))+ '/'
-			copy_cd(cdrom, copyDir);
+			print 'copy finished'
+			time.sleep(5)
 			
 	 
 if __name__ == '__main__': 
